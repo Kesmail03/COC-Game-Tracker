@@ -1,0 +1,6 @@
+flask
+gunicorn
+python-dotenv
+requests
+google-cloud-datastore
+

@@ -1,0 +1,42 @@
+{% extends "layout.html" %} {% block content %}
+
+<h2>Track Your Village</h2>
+<h2>Player Tag: #2PJG98CGV (Hard-coded)</h2>
+
+
+{% if error %}
+<p style="color: red;">{{ error }}</p>
+{% endif %}
+
+{% if player_data %}
+<h3>Player Details</h3>
+<ul>
+    <li><strong>Name:</strong>{{ player_data['name'] }}</li>
+    <li><strong>Town Hall Level:</strong> {{ player_data['townHallLevel'] }}</li>
+    <li><strong>Player Tag:</strong> {{ player_data['tag'] }}</li>
+</ul>
+
+<h3>Troops</h3>
+<ul>
+    {% for troop in troops %}
+    <li>{{ troop.name }} - Level: {{ troop.level }}/{{ troop.maxLevel }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Heroes</h3>
+<ul>
+    {% for hero in heroes %}
+    <li>{{ hero.name }} - Level: {{ hero.level }}/{{ hero.maxLevel }}</li>
+    {% endfor %}
+</ul>
+
+<h3>Pets</h3>
+<ul>
+    {% for pet in pets %}
+        <li>{{ pet.name }} - Level: {{ pet.level }}/{{ pet.maxLevel }}</li>
+    {% else %}
+        <li>No pets available</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}
